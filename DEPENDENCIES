@@ -1,0 +1,46 @@
+Won't read more than 140 characters and Ubuntu user?
+JUST DO THIS:
+
+sudo apt-get install build-essential
+sudo apt-get install libtool
+sudo apt-get install libmhash-dev
+sudo apt-get install libmcrypt-dev
+sudo apt-get install libjpeg-dev
+sudo apt-get install zlibc zlib1g zlib1g-dev
+
+Dependencies :
+--------------
+You should have the following libraries installed to use steghide.
+
+* libmhash
+  A library that provides various hash algorithms and cryptographic key
+  generation algorithms. Steghide needs this library to convert a passphrase
+  into a form that can be used as input for cryptographic and steganographic
+  algorithms.
+  Available at: http://mhash.sourceforge.net/
+  Debian (Ubuntu): sudo apt-get install libmhash-dev
+
+* libmcrypt  
+  A library that provides a lot of symmetric encryption algorithms. If you
+  compile steghide without libmcrypt you will not be able to use steghide to
+  encrypt data before embedding nor to extract encrypted data (even if you know
+  the correct passphrase).
+  Available at: http://mcrypt.sourceforge.net/
+  Debian (Ubuntu): sudo apt-get install libmcrypt-dev
+
+* libjpeg
+  A library implementing jpeg image compression. Without this library you will
+  not be able to embed data in jpeg files nor to extract data from jpeg files.
+  Available at: http://www.ijg.org/
+  Debian (Ubuntu): sudo apt-get install libjpeg-dev
+
+* zlib
+  A lossless data compression library. If you compile steghide without having
+  this library installed you will not be able to use steghide to compress data
+  before embedding nor to extract compressed data from a stego-file.
+  Available at: http://www.gzip.org/zlib/
+  Debian (Ubuntu): sudo apt-get install zlibc zlib1g zlib1g-dev
+
+Libmhash is absolutely required to compile steghide. While you can compile it
+without the other libraries they are highly recommended as major functionality
+will not be available without them.
