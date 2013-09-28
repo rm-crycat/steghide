@@ -22,6 +22,7 @@
 #include <list>
 #include <map>
 #include <vector>
+#include <climits>
 
 #include "BitString.h"
 #include "CvrStgFile.h"
