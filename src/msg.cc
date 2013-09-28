@@ -72,8 +72,8 @@ std::string MessageBase::vcompose (const char *msgfmt, va_list ap) const
 {
 	char *str = new char[MsgMaxSize] ;
 	vsnprintf (str, MsgMaxSize, msgfmt, ap) ;
-	std::string retval (str) ;
-	delete[] str ;
+    std::string retval (str) ;
+    delete[] str ;
 	return retval ;
 }
 
@@ -105,7 +105,7 @@ VerboseMessage::VerboseMessage (const char *msgfmt, ...)
 {
 	va_list ap ;
 	va_start (ap, msgfmt) ;
-	setMessage (vcompose (msgfmt, ap)) ;
+    setMessage (vcompose (msgfmt, ap)) ;
 	va_end (ap) ;
 	setNewline (true) ;
 }

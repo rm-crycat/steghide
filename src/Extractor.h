@@ -33,6 +33,8 @@ class Extractor {
 	private:
 	std::string StegoFileName ;
 	std::string Passphrase ;
+
+    EmbData* extractPass(bool nothrow);
 } ;
 
 #endif // ndef SH_EXTRACTOR_H

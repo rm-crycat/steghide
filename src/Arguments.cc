@@ -71,6 +71,7 @@ void Arguments::parse ()
 		if (parse_CvrFn(curarg)) continue ;
 		if (parse_StgFn(curarg)) continue ;
 		if (parse_Passphrase(curarg)) continue ;
+        if (parse_Passfile(curarg)) continue ;
 		if (parse_Checksum(curarg)) continue ;
 		if (parse_Compression(curarg)) continue ;
 		if (parse_EmbedEmbFn(curarg)) continue ;
@@ -108,7 +109,9 @@ void Arguments::parse ()
 				if (StgFn.getValue() == "") {
 					throw ArgError (_("if standard input is used, the passphrase must be specified on the command line.")) ;
 				}
-				Passphrase.setValue (getPassphrase()) ;
+
+                if(!Passfile.is_set())
+                    Passphrase.setValue (getPassphrase()) ;
 			}
 		}
 	}
@@ -322,24 +325,46 @@ bool Arguments::parse_StgFn (ArgIt& curarg)
 
 bool Arguments::parse_Passphrase (ArgIt& curarg)
 {
-	bool found = false ;
+    bool found = false ;
 
-	if (*curarg == "-p" || *curarg == "--passphrase") {
-		if (Passphrase.is_set()) {
-			throw ArgError (_("the passphrase argument can be used only once.")) ;
-		}
+    if (*curarg == "-p" || *curarg == "--passphrase") {
+        if (Passphrase.is_set()) {
+            throw ArgError (_("the passphrase argument can be used only once.")) ;
+        }
 
-		if (++curarg == TheArguments.end()) {
-			throw ArgError (_("the \"%s\" argument must be followed by the passphrase."), (curarg - 1)->c_str());
-		}
+        if (++curarg == TheArguments.end()) {
+            throw ArgError (_("the \"%s\" argument must be followed by the passphrase."), (curarg - 1)->c_str());
+        }
 
-		Passphrase.setValue (*curarg) ;
+        Passphrase.setValue (*curarg) ;
 
-		found = true ;
-		curarg++ ;
-	}
+        found = true ;
+        curarg++ ;
+    }
 
-	return found ;
+    return found ;
+}
+
+bool Arguments::parse_Passfile(ArgIt& curarg)
+{
+    bool found = false ;
+
+    if (*curarg == "-pf" || *curarg == "--passfile") {
+        if (Passfile.is_set()) {
+            throw ArgError (_("the passfile argument can be used only once.")) ;
+        }
+
+        if (++curarg == TheArguments.end()) {
+            throw ArgError (_("the \"%s\" argument must be followed by the passfile."), (curarg - 1)->c_str());
+        }
+
+        Passfile.setValue (*curarg) ;
+
+        found = true ;
+        curarg++ ;
+    }
+
+    return found ;
 }
 
 bool Arguments::parse_Checksum (ArgIt& curarg)

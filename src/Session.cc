@@ -258,9 +258,9 @@ void Session::printHelp ()
 		"   -ef <filename>        embed the file <filename>\n"
 		" -cf, --coverfile        select cover-file\n"
 		"   -cf <filename>        embed into the file <filename>\n"
-		" -p, --passphrase        specify passphrase\n"
-		"   -p <passphrase>       use <passphrase> to embed data\n"
-		" -sf, --stegofile        select stego file\n"
+        " -p, --passphrase        specify passphrase\n"
+        "   -p <passphrase>       use <passphrase> to embed data\n"
+        " -sf, --stegofile        select stego file\n"
 		"   -sf <filename>        write result to <filename> instead of cover-file\n"
 		" -e, --encryption        select encryption parameters\n"
 		"   -e <a>[<m>]|<m>[<a>]  specify an encryption algorithm and/or mode\n"
@@ -279,7 +279,9 @@ void Session::printHelp ()
 		"   -sf <filename>        extract data from <filename>\n"
 		" -p, --passphrase        specify passphrase\n"
 		"   -p <passphrase>       use <passphrase> to extract data\n"
-		" -xf, --extractfile      select file name for extracted data\n"
+        " -pf, --passfile         specify passwords list file\n"
+        "   -pf <passfile>        use <passfile> to extract using passwords list file\n"
+        " -xf, --extractfile      select file name for extracted data\n"
 		"   -xf <filename>        write the extracted data to <filename>\n"
 		" -f, --force             overwrite existing files\n"
 		" -q, --quiet             suppress information messages\n"
@@ -290,7 +292,7 @@ void Session::printHelp ()
 		"   -p <passphrase>       use <passphrase> to get info about embedded data\n"
 
 		"\nTo embed emb.txt in cvr.jpg: steghide embed -cf cvr.jpg -ef emb.txt\n"
-		"To extract embedded data from stg.jpg: steghide extract -sf stg.jpg\n")) ;
+        "To extract embedded data from stg.jpg: steghide extract -sf stg.jpg\n")) ;
 }
 
 void Session::printLicense ()

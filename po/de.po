@@ -10,6 +10,7 @@ msgstr ""
 "PO-Revision-Date: 2003-09-29 14:09+0200\n"
 "Last-Translator: Stefan Hetzl <shetzl@chello.at>\n"
 "Language-Team: Deutsch\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -488,8 +489,8 @@ msgstr ""
 msgid ""
 "the bmp file \"%s\" has a format that is not supported (bcBitCount: %d)."
 msgstr ""
-"Die bmp-Datei \"%s\" hat ein Format das nicht unterstützt wird (bcBitCount: %"
-"d)."
+"Die bmp-Datei \"%s\" hat ein Format das nicht unterstützt wird (bcBitCount: "
+"%d)."
 
 #: src/BmpFile.cc:669
 #, c-format

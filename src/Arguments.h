@@ -68,6 +68,7 @@ class Arguments {
 	/// the stego file name, "" if stdout/stdin
 	ArgString		StgFn ;
 	ArgString		Passphrase ;
+    ArgString       Passfile;
 	ArgBool			Checksum ;
 	ArgInt			Compression ;
 	ArgBool			EmbedEmbFn ;
@@ -125,6 +126,7 @@ class Arguments {
 	bool parse_CvrFn (ArgIt& curarg) ;
 	bool parse_StgFn (ArgIt& curarg) ;
 	bool parse_Passphrase (ArgIt& curarg) ;
+    bool parse_Passfile(ArgIt& curarg);
 	bool parse_Checksum (ArgIt& curarg) ;
 	bool parse_Compression (ArgIt& curarg) ;
 	bool parse_EmbedEmbFn (ArgIt& curarg) ;
