@@ -60,7 +60,9 @@ EmbData* Extractor::extract ()
     if(Args.Passfile.is_set())
        {
         char        cstr[260]="";
-        const char *fname=Args.Passfile.getValue().c_str();
+        std::string passfile = Args.Passfile.getValue();
+        char *fname=new char[passfile.length()+1];
+        strcpy(fname, passfile.c_str());
         FILE       *fp=fopen64(fname,"rt"); // fopen оказывается не умеет в файлы > 2GB
 
         printf("Using '%s' passwords list file\n",fname);
